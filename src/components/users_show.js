@@ -22,37 +22,38 @@ class UserShow extends Component {
         const {user} = this.props;
 
         if(!user){
-            return <div>Please, wait a moment</div>
+            return <div>Something went wrong...</div>
         }
 
         return(
             <div>
-                <Link to="/">Back to list</Link>
-                <h3>{user.username}</h3>
-                <h5>{user.name}</h5>
-                <h5>{user.email}</h5>
+
+                <h3>User: {user.username}</h3>
+                <h5>Name: {user.name}</h5>
+                <h5>Email {user.email}</h5>
                 <h6>Address:</h6>
-                <ul>
-                    <li>Street: {user.address.street}</li>
-                    <li>Suite: {user.address.suite}</li>
-                    <li>City: {user.address.city}</li>
-                    <li>Zipcode: {user.address.zipcode}</li>
-                    <li>Localisation: lat {user.address.geo.lat} lng {user.address.geo.lng}</li>
+                <ul className="list-group list-group-flush mb-3">
+                    <li className="list-group-item">Street: {user.address.street}</li>
+                    <li className="list-group-item">Suite: {user.address.suite}</li>
+                    <li className="list-group-item">City: {user.address.city}</li>
+                    <li className="list-group-item">Zipcode: {user.address.zipcode}</li>
+                    <li className="list-group-item">Localisation: lat {user.address.geo.lat} lng {user.address.geo.lng}</li>
                 </ul>
                 <h6>Company</h6>
-                <ul>
-                    <li>{user.company.name}</li>
-                    <li>{user.company.catchPhrase}</li>
-                    <li>{user.company.bs}</li>
-                    <li>{user.phone}</li>
-                    <li>{user.website}</li>
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item">{user.company.name}</li>
+                    <li className="list-group-item">{user.company.catchPhrase}</li>
+                    <li className="list-group-item">{user.company.bs}</li>
+                    <li className="list-group-item">{user.phone}</li>
+                    <li className="list-group-item">{user.website}</li>
                 </ul>
                 <button
-                className="btn btn-danger"
+                className="btn btn-danger mr-2"
                 onClick={this.onDeleteClick.bind(this)}
                 >
                     Delete user
                 </button>
+                <Link to="/" className="btn btn-primary">Back to list</Link>
             </div>
         )
     }

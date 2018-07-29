@@ -8,7 +8,7 @@ class UserCreate extends Component{
     renderField(field){
 
         const {meta: {touched, error}} = field;
-        const className = `form-group ${touched && error ? "has-danger" : ""}`;
+        const className = `form-group ${touched && error ? "alert alert-danger" : ""}`;
 
         return(
             <div className={className}>
@@ -103,7 +103,7 @@ class UserCreate extends Component{
                     name="company.bs"
                     component={this.renderField}
                 />
-                <button type="submit" className="btn btn-success">Create</button>
+                <button type="submit" className="btn btn-success mr-2">Create</button>
                 <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>
         )
@@ -116,8 +116,44 @@ function validate(values) {
     if(!values.username){
         errors.username = "Give a username";
     }
-    if(!values.lat){
-        errors.lat = "Give a lat";
+    if(!values.name){
+        errors.name = "Give a name";
+    }
+    if(!values.email){
+        errors.email= "Give a email";
+    }
+    if(!values.address){
+        errors.address = "Give a address street";
+    }
+    if(!values.address){
+        errors.address = "Give a suite";
+    }
+    if(!values.address){
+        errors.address = "Give a city";
+    }
+    if(!values.address){
+        errors.address = "Give a zipcode";
+    }
+    if(!values.address){
+        errors.address = "Give a lat";
+    }
+    if(!values.address){
+        errors.address = "Give a lng";
+    }
+    if(!values.phone){
+        errors.phone = "Give a phone number";
+    }
+    if(!values.website){
+        errors.website = "Give a website url";
+    }
+    if(!values.company){
+        errors.company = "Give a name of company";
+    }
+    if(!values.company){
+        errors.company = "Give a company catchPhrase";
+    }
+    if(!values.company){
+        errors.company = "Give a company bs";
     }
 
     return errors;
