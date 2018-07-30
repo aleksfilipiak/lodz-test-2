@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {createUser} from "../actions";
 
-class UserCreate extends Component{
-    renderField(field){
+class UserCreate extends Component {
+    renderField(field) {
 
         const {meta: {touched, error}} = field;
         const className = `form-group ${touched && error ? "alert alert-danger" : ""}`;
 
-        return(
+        return (
             <div className={className}>
                 <label>{field.label}</label>
                 <input type="text" {...field.input} className="form-control"/>
@@ -21,91 +21,95 @@ class UserCreate extends Component{
         );
     }
 
-    onSubmit(values){
-        this.props.createUser(values,()=>{
+    onSubmit(values) {
+        this.props.createUser(values, () => {
             this.props.history.push("/"); //callback
         });
     }
 
-    render(){
+    render() {
         const {handleSubmit} = this.props;
 
-        return(
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <Field
-                label="Username"
-                name="username"
-                component={this.renderField}
-                />
+        return (
+            <div>
+                <h2>You need to fill EVERY field</h2>
 
-                <Field
-                    label="Name"
-                    name="name"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Email"
-                    name="email"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Street"
-                    name="address.street"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Suite"
-                    name="address.suite"
-                    component={this.renderField}
-                />
-                <Field
-                    label="City"
-                    name="address.city"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Zip code"
-                    name="address.zipcode"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Lat"
-                    name="address.geo.lat"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Lng"
-                    name="address.geo.lng"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Phone"
-                    name="phone"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Website"
-                    name="website"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Company name"
-                    name="company.name"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Company Catch Phrase"
-                    name="company.catchPhrase"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Company bs"
-                    name="company.bs"
-                    component={this.renderField}
-                />
-                <button type="submit" className="btn btn-success mr-2">Create</button>
-                <Link to="/" className="btn btn-danger">Cancel</Link>
-            </form>
+                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                    <Field
+                        label="Username"
+                        name="username"
+                        component={this.renderField}
+                    />
+
+                    <Field
+                        label="Name"
+                        name="name"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Email"
+                        name="email"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Street"
+                        name="address.street"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Suite"
+                        name="address.suite"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="City"
+                        name="address.city"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Zip code"
+                        name="address.zipcode"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Lat"
+                        name="address.geo.lat"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Lng"
+                        name="address.geo.lng"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Phone"
+                        name="phone"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Website"
+                        name="website"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Company name"
+                        name="company.name"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Company Catch Phrase"
+                        name="company.catchPhrase"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Company bs"
+                        name="company.bs"
+                        component={this.renderField}
+                    />
+                    <button type="submit" className="btn btn-success mr-2">Create</button>
+                    <Link to="/" className="btn btn-danger">Cancel</Link>
+                </form>
+            </div>
         )
     }
 }
@@ -113,46 +117,46 @@ class UserCreate extends Component{
 function validate(values) {
     const errors = {};
 
-    if(!values.username){
+    if (!values.username) {
         errors.username = "Give a username";
     }
-    if(!values.name){
+    if (!values.name) {
         errors.name = "Give a name";
     }
-    if(!values.email){
-        errors.email= "Give a email";
+    if (!values.email) {
+        errors.email = "Give a email";
     }
-    if(!values.address){
+    if (!values.address) {
         errors.address = "Give a address street";
     }
-    if(!values.address){
+    if (!values.address) {
         errors.address = "Give a suite";
     }
-    if(!values.address){
+    if (!values.address) {
         errors.address = "Give a city";
     }
-    if(!values.address){
+    if (!values.address) {
         errors.address = "Give a zipcode";
     }
-    if(!values.address){
+    if (!values.address) {
         errors.address = "Give a lat";
     }
-    if(!values.address){
+    if (!values.address) {
         errors.address = "Give a lng";
     }
-    if(!values.phone){
+    if (!values.phone) {
         errors.phone = "Give a phone number";
     }
-    if(!values.website){
+    if (!values.website) {
         errors.website = "Give a website url";
     }
-    if(!values.company){
+    if (!values.company) {
         errors.company = "Give a name of company";
     }
-    if(!values.company){
+    if (!values.company) {
         errors.company = "Give a company catchPhrase";
     }
-    if(!values.company){
+    if (!values.company) {
         errors.company = "Give a company bs";
     }
 

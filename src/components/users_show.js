@@ -22,7 +22,7 @@ class UserShow extends Component {
         const {user} = this.props;
 
         if (!user) {
-            return <div>Something went wrong...</div>
+            return <div>Loading...</div>
         }
 
         return (
