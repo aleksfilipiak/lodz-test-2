@@ -1,19 +1,19 @@
-#App for demonstration
+# App for demonstration
 
-###This Single Page App is an example of use several libraries and frameworks: React, Redux (including Redux-form), React-Router.
-###Axios library was used to fetch API.
+### This Single Page App is an example of use several libraries and frameworks: React, Redux (including Redux-form), React-Router.
+### Axios library was used to fetch API.
 
-#####To run app:
+##### To run app:
 
 `npm install`
 
 `npm start`
 
-#####Note:
+##### Note:
 
 If you want to see how app manipulates API data you need to look in `actions/index.js` file and switch commenting `const ROOT_URL`.
 
-#####Explanation:
+##### Explanation:
 
 Initial API url is `const ROOT_URL = "http://jsonplaceholder.typicode.com";`. But by default this API doesn't change it's data base content when you want to delete some user. You can't also create new one or edit some.
 
